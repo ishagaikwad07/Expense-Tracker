@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            text-align: center;
+        }
+        #chartContainer {
+            margin-top: 30px;
+        }
+        .transaction-table {
+            margin-top: 20px;
+        }
+        #importSection {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Transaction Tracker</h1>
+
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" class="form-control" placeholder="Transaction description">
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" class="form-control">
+                <option value="">Select Category</option>
+                <option value="Food">Food</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Health">Health</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" class="form-control" placeholder="Transaction amount">
+        </div>
+
+        <div class="form-group">
+            <label for="currency">Currency:</label>
+            <select id="currency" class="form-control">
+                <option value="">Select Currency</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="INR">INR</option>
+                <option value="JPY">JPY</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary" onclick="addTransaction()">Add Transaction</button>
+
+        <h3>Transaction Summary</h3>
+        <div id="totalIncome">Total Income: 0.00</div>
+        <div id="totalExpenses">Total Expenses: 0.00</div>
+        <div id="netIncome">Net Income: 0.00</div>
+
+        <h3>Transactions</h3>
+        
+        <div class="form-group">
+            <label for="filterCategory">Filter by Category:</label>
+            <select id="filterCategory" class="form-control" onchange="filterTransactions()">
+                <option value="">All Categories</option>
+                <option value="Food">Food</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Health">Health</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <table class="table table-bordered transaction-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Currency</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="transactionBody">
+                <!-- Transactions will be rendered here -->
+            </tbody>
+        </table>
+
+        <div id="chartContainer">
+            <canvas id="expenseChart"></canvas>
+        </div>
+
+        <div id="importSection">
+            <h3>Import/Export Transactions</h3>
+            <button class="btn btn-success" onclick="exportCSV()">Export to CSV</button>
+            <input type="file" id="importFile" accept=".csv" onchange="importCSV()">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

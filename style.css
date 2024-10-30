@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1, h5 {
+    color: #333;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+td button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #c82333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .card {
+    background-color: #444;
+}
+
+body.dark-mode .table {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-mode .table th {
+    background-color: #666;
+}
+
+body.dark-mode .table td {
+    border: 1px solid #666;
+}
+
+body.dark-mode .error-message {
+    color: orange;
+}
+.error-message {
+    color: red;
+}
