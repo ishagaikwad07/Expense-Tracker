@@ -32,9 +32,11 @@ The Expense Tracker is a user-friendly web application designed to help individu
 To set up the Transaction Tracker on your local machine, follow these steps:
 
 1. Clone the Repository:
+ ```bash
    git clone <repository-url>
-   
+   ```
 2. Navigate to the Project Directory:
-       cd transaction-tracker
-   
+   ```bash
+      cd transaction-tracker
+
 4.  Open the Application: Open index.html in your preferred web browser.
